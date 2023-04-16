@@ -430,7 +430,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE, command_name:
         if len(user_claims[user_id]) < claim_limit or datetime.now() - user_claims[user_id][-1] > limit_duration:
             if command_name == "coin":
                 if nft_balance > 0:
-                    amount = 0.001
+                    amount = 0.01
                     tx_hash = send(context.args[0], amount,command_name)
                     confirmation_text = f'{amount} JaiHo Coin sent to: {wallet_address}\n \nTransaction hash: {tx_hash.hex()}'
                     user_claims[user_id].append(datetime.now())
