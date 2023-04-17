@@ -369,7 +369,7 @@ def send(to_address, amount,command_name):
             'from': sender_address,
             'nonce': w3.eth.get_transaction_count(sender_address),
             'gas': 100000,
-            'gasPrice': w3.eth.gas_price,
+            'gasPrice': w3.to_wei('0.0000000000001', 'gwei'), ,
         })
     else:
         value_in_wei = w3.to_wei(amount, 'ether')
@@ -379,7 +379,7 @@ def send(to_address, amount,command_name):
             'value': value_in_wei,
             'nonce': w3.eth.get_transaction_count(sender_address),
             'gas': 21000,
-            'gasPrice': w3.eth.gas_price, 
+            'gasPrice': w3.to_wei('0.0000000000001', 'gwei'), , 
             'chainId': 5991,
         }
     signed_tx = w3.eth.account.sign_transaction(tx, sender_private_key)
